@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+#  oracle:
+#    image: container-registry.oracle.com/database/enterprise:19.3.0.0
+#    #    volumes:
+##      - ./oracle/cleaning:/opt/oracle/cleaning
+##      - ./oracle/data:/opt/oracle/oradata # persistent oracle database data.
+#    environment:
+#      - ORACLE_ALLOW_REMOTE=true
+#      - ORACLE_SID=BDAS
+#      - ORACLE_PDB=st12345
+#      - ORACLE_PWD=password
+#    ports:
+#      - "1521:1521"
+  oracle-19c:
+    container_name: oracle-19c
+    image: doctorkirk/oracle-19c
+    ports:
+      - '1521:1521'
+    environment:
+      - 'ORACLE_SID=BDAS'
+      - 'ORACLE_PWD=password'
+      - 'ORACLE_CHARACTERSET=AL32UTF8'
+#    volumes:
+#      - '/your/custom/path/oracle-19c/oradata/:/opt/oracle/oradata'

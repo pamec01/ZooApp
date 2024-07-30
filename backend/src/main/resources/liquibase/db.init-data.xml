@@ -1,0 +1,132 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet id="DDL" author="MP, MP">
+        <sqlFile dbms="oracle" endDelimiter=";"
+                 path="./scripts/ddl.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="false"/>
+    </changeSet>
+
+    <changeSet id="INSERT_TRIGGERS_SEQUENCES" author="MP, MP">
+        <sqlFile dbms="oracle" endDelimiter="/"
+                 path="scripts/insert-triggers-plsql.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="false"/>
+
+        <sqlFile dbms="oracle" endDelimiter=";"
+                 path="scripts/sequences.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="false"/>
+    </changeSet>
+
+    <changeSet id="CRUD" author="MP, MP">
+        <sqlFile dbms="oracle" endDelimiter="/"
+                 path="scripts/plsql-packages-crud.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="false"/>
+    </changeSet>
+
+    <changeSet id="LOG" author="MP, MP">
+        <sqlFile dbms="oracle" endDelimiter="/"
+                 path="scripts/logging-triggers.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="false"/>
+    </changeSet>
+
+    <changeSet id="Functions" author="MP, MP">
+        <sqlFile dbms="oracle" endDelimiter="/"
+                 path="scripts/functions.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="false"/>
+    </changeSet>
+
+    <changeSet id="Triggers" author="MP, MP">
+        <sqlFile dbms="oracle" endDelimiter="/"
+                 path="scripts/triggers.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="false"/>
+    </changeSet>
+
+    <changeSet id="Procedures" author="MP, MP">
+        <sqlFile dbms="oracle" endDelimiter="/"
+                 path="scripts/procedures.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="false"/>
+    </changeSet>
+
+    <changeSet id="HIEARCH" author="MP, MP">
+        <sqlFile dbms="oracle" endDelimiter=";"
+                 path="scripts/hiearch.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="false"/>
+    </changeSet>
+
+    <!-- Keep last -->
+    <changeSet id="DML" author="MP, MP">
+        <sqlFile dbms="oracle" endDelimiter=";"
+                 path="./scripts/init-data.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="false"/>
+
+        <insert tableName="soubor">
+            <column name="data" type="BLOB" valueBlobFile="./files/screen.JPG"/>
+            <column name="nazev" value="screen.JPG"/>
+            <column name="typ" value="JPG obrázek"/>
+            <column name="medikament_zvire_id" value="3"/>
+            <column name="osetrovatel_id" value="6"/>
+        </insert>
+
+        <insert tableName="soubor">
+            <column name="data" type="BLOB" valueBlobFile="./files/screen.PNG"/>
+            <column name="nazev" value="screen.PNG"/>
+            <column name="typ" value="PNG obrázek"/>
+            <column name="medikament_zvire_id" value="3"/>
+            <column name="osetrovatel_id" value="4"/>
+        </insert>
+
+        <insert tableName="soubor">
+            <column name="data" type="BLOB" valueBlobFile="./files/text.txt"/>
+            <column name="nazev" value="text.txt"/>
+            <column name="typ" value="Textový dokument"/>
+            <column name="medikament_zvire_id" value="5"/>
+            <column name="osetrovatel_id" value="1"/>
+        </insert>
+
+        <insert tableName="soubor">
+            <column name="data" type="BLOB" valueBlobFile="./files/Word text.docx"/>
+            <column name="nazev" value="text.txt"/>
+            <column name="typ" value="Word dokument"/>
+            <column name="medikament_zvire_id" value="13"/>
+            <column name="osetrovatel_id" value="15"/>
+        </insert>
+
+        <insert tableName="soubor">
+            <column name="data" type="BLOB" valueBlobFile="./files/Word text.pdf"/>
+            <column name="nazev" value="Word text.pdf"/>
+            <column name="typ" value="PDF dokument"/>
+            <column name="medikament_zvire_id" value="9"/>
+            <column name="osetrovatel_id" value="8"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="ProcedureCalls" author="MP, MP">
+        <sqlFile dbms="oracle" endDelimiter="/"
+                 path="scripts/procedure-calls.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="false"
+                 stripComments="false"/>
+    </changeSet>
+</databaseChangeLog>

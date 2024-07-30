@@ -1,0 +1,27 @@
+# OracleDB connection settings #
+## Local ENV ##
+spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/BDAS
+spring.datasource.username=st12345
+spring.datasource.password=password
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+
+## FEI ##
+#spring.datasource.url=jdbc:oracle:thin:@fei-sql3.upceucebny.cz:1521:BDAS
+#spring.datasource.username=st67089
+#spring.datasource.password=69420666Aa!
+#spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+
+# Logging #
+spring.main.banner-mode=log
+logging.file.path=./logs/
+
+# Authentication #
+auth.enabled=false
+
+# File size #
+spring.servlet.multipart.max-file-size=100MB
+spring.servlet.multipart.max-request-size=100MB
+
+# Liquibase #
+spring.liquibase.enabled=true
+spring.liquibase.change-log=classpath:/db.changelog-master.xml
